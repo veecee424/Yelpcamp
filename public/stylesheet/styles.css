@@ -6,14 +6,18 @@ p#campdesc {
     margin-top: 0rem;
 }
 
+html body{
+margin-top: 5rem;
+overflow: scroll;
+}
+
 form#delete, form#deleteBtn {
     display: inline;
 }
 
 #homepage {
     text-align: center;
-    z-index: 1;
-    position: relative; /* To ensure the z-index styling takes effect, the position of the item the styling is being applied to must be set to zero, otherwise it won't work*/
+     /* position: relative; To ensure the z-index styling takes effect, the position of the item the styling is being applied to must be set to zero, otherwise it won't work*/
     margin-top: 15rem;
     
 }
@@ -33,7 +37,12 @@ div.img-thumbnail {
 footer#footer {
     color: white;
     padding: 10px 10px 10px 10px;
-    margin-top: 1.7rem;
+    margin-top: 2rem;
+   }
+nav#navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
 }
 /*
 html body{
