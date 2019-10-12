@@ -7,8 +7,8 @@ let express                 = require("express"),
     User                    = require("./Models/user.js"),
     ExpressSession          = require("express-session"),
     passport                = require("passport"),
-    cookieParser            = require('cookie-parser'),
-     MemoryStore = require('session-memory-store')(ExpressSession),
+    //cookieParser            = require('cookie-parser'),
+    //MemoryStore = require('session-memory-store')(ExpressSession),
     flash                   = require("connect-flash"),
     methodOverride          = require("method-override"),
     LocalStrategy           = require("passport-local");
@@ -28,9 +28,9 @@ app.use(ExpressSession({
     secret: "This is a secret",
     resave: false,
     saveUninitialized: false,
-    store: new MemoryStore()
+   // store: new MemoryStore()
 }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
