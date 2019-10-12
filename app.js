@@ -14,8 +14,8 @@ let express                 = require("express"),
     LocalStrategy           = require("passport-local");
 
 //connect mongoose
-//mongoose.connect("mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
-mongoose.connect("mongodb://veecee:rexval424@ds233288.mlab.com:33288/heroku_tr26688b", {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
+//mongoose.connect("mongodb://veecee:rexval424@ds233288.mlab.com:33288/heroku_tr26688b", {useNewUrlParser: true});
 
 
 
@@ -54,7 +54,7 @@ app.use(CampgroundRoutes);
 app.use(authenticationRoutes);
 app.use(commentsRoutes);
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
 console.log("Yelcamp Server is running");
 });
 
