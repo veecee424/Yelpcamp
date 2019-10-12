@@ -1,0 +1,42 @@
+.card {
+    background-color: lightgrey !important;
+}
+p#campdesc {
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+}
+
+form#delete, form#deleteBtn {
+    display: inline;
+}
+
+#homepage {
+    text-align: center;
+    z-index: 1;
+    position: relative; /* To ensure the z-index styling takes effect, the position of the item the styling is being applied to must be set to zero, otherwise it won't work*/
+    margin-top: 15rem;
+    
+}
+
+h6#campname {
+    display: inline;
+}
+
+p#campCreator {
+    margin-bottom: 0rem;
+}
+
+div.img-thumbnail {
+    padding: 0rem;
+}
+
+footer#footer {
+    color: white;
+    padding: 10px 10px 10px 10px;
+    margin-top: 1.7rem;
+}
+/*
+html body{
+    background: black;
+  }
+  */
