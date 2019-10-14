@@ -26,7 +26,7 @@ router.get("/campgrounds", function (req, res) {
     });
     
     //post to campgrounds -- CREATE REST ROUTE (post)
-router.post("/campgrounds", middleware.isLoggedIn, function(req, res) {
+router.post("/campgrounds", function(req, res) {
     let name = req.body.campName;
     let image = req.body.campImage;
     let price = req.body.price;

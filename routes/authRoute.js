@@ -19,7 +19,7 @@ let passport = require("passport");
             //passport.authenticate("local")(req, res, function(){ ...... logs the user in automatically on sign up
             User.authenticate("local")(req, res, function(){
                req.flash("success", registeredUser.username + ", your're Successfully registered!")
-              res.redirect("/login");;
+              res.redirect("/login");
             });
         }
     });
@@ -31,11 +31,12 @@ let passport = require("passport");
  });
 
  router.post("/login", passport.authenticate("local", {
+     successFlash: "Successfully logged in!",
     successRedirect: "/campgrounds",
+    failureFlash: "Incorrect username and password combination",
     failureRedirect: "login"
  }), function(req, res) {
-     req.flash("success", "successfully logged in!");
- });
+});
 
  //Logout Route
  router.get("/logout", function(req, res) {
