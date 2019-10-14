@@ -13,10 +13,9 @@ let express                 = require("express"),
     methodOverride          = require("method-override"),
     LocalStrategy           = require("passport-local");
 
-//connect mongoose
+//connect mongoose (NB) Any of these can work.. 
 //mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
-mongoose.connect("mongodb://veecee:rexval424@ds233288.mlab.com:33288/heroku_mttdwvhg", {useNewUrlParser: true});
-
+mongoose.connect(process.env.MY_MONGOLAB_DB || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
 
 //Dependencies uses
 let app = express();
