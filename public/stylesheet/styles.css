@@ -1,14 +1,19 @@
 .card {
     background-color: lightgrey !important;
 }
+
 p#campdesc {
     margin-bottom: 0rem;
     margin-top: 0rem;
 }
 
 html body{
-margin-top: 5rem;
+margin-top: 0rem;
 overflow: scroll;
+min-height: 100vh;
+min-width: 100vw;
+display: flex;
+flex-direction: column;
 }
 
 form#delete, form#deleteBtn {
@@ -18,7 +23,7 @@ form#delete, form#deleteBtn {
 #homepage {
     text-align: center;
      /* position: relative; To ensure the z-index styling takes effect, the position of the item the styling is being applied to must be set to zero, otherwise it won't work*/
-    margin-top: 15rem;
+    margin-top: 9rem;
     
 }
 
@@ -35,17 +40,21 @@ div.img-thumbnail {
 }
 
 footer#footer {
-    color: white;
-    padding: 10px 10px 10px 10px;
-    margin-top: 2rem;
-   }
+    background-color: #343a40;
+    padding: 10px;
+    margin-top: auto;
+}
+
 nav#navbar {
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
+    margin-bottom: 1.5rem !important;
+    margin-top: 0rem;
 }
-/*
-html body{
-    background: black;
-  }
-  */
+
+.container {
+    margin-bottom: 1.5rem;
+}
+
+

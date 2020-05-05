@@ -2,20 +2,16 @@
 let express                 = require("express"),
     mongoose                = require("mongoose"),
     bodyParser              = require("body-parser"),
-   // Campground              = require("./Models/campground.js"),
-  //  Comment                 = require("./Models/comments.js"),
     User                    = require("./Models/user.js"),
     ExpressSession          = require("express-session"),
     passport                = require("passport"),
-    //cookieParser            = require('cookie-parser'),
-    //MemoryStore = require('session-memory-store')(ExpressSession),
     flash                   = require("connect-flash"),
     methodOverride          = require("method-override"),
     LocalStrategy           = require("passport-local");
 
 //connect mongoose (NB) Either of these can work.. 
 //mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
-mongoose.connect(process.env.MY_MONGOLAB_DB || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
+mongoose.connect(process.env.MY_MONGOLAB_DB || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Dependencies uses
 let app = express();
@@ -41,6 +37,7 @@ app.use(function(req, res, next) {
     res.locals.CurrentUser = req.user;
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
+    
     next();
 });
 
@@ -52,8 +49,9 @@ app.use(CampgroundRoutes);
 app.use(authenticationRoutes);
 app.use(commentsRoutes);
 
-app.listen(process.env.PORT || 3000, function () {
+app.listen(process.env.PORT || 5000, function () {
 console.log("Yelcamp Server is running");
 });
+
 
 module.exports = app;
