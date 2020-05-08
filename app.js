@@ -9,8 +9,7 @@ let express                 = require("express"),
     methodOverride          = require("method-override"),
     LocalStrategy           = require("passport-local");
 
-//connect mongoose (NB) Either of these can work.. 
-//mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true});
+
 mongoose.connect(process.env.MY_MONGOLAB_DB || "mongodb://localhost:27017/yelpcamp", {useNewUrlParser: true, useUnifiedTopology: true});
 
 //Dependencies uses

@@ -1,18 +1,17 @@
 let Comment = require("../Models/comments");
 let Campground = require("../Models/campground");
-//Make an object to contain all middleware functions/objects
+
 
 let middlewareObj = {
     checkCommentOwnership: function (req, res, next) {
-        //Check if user is logged in first
-        if(req.isAuthenticated()) {
-            //if a user is logged in, find out who it is and compare with the comment's author id
+                if(req.isAuthenticated()) {
+           
             Comment.findById(req.params.commentId, function(err, Commentfound) {
                 if(err) {
                     console.log(err);
                     req.flash("error", "Something went wrong!");
                 } else {
-                    //check if the shown comment author's id is same as the logged in user's if
+                    
                     if(Commentfound.author.id.equals(req.user._id)) {
                         next();
                     } else {
@@ -37,15 +36,15 @@ let middlewareObj = {
     },
 
     checkCampOwnership: function (req, res, next) {
-        //Check if user is logged in first
+        
         if(req.isAuthenticated()) {
-            //if a user is logged in, find out who it is and compare with the campground's user/creator id
+          
             Campground.findById(req.params.id, function(err, campfound) {
                 if(err) {
                     console.log(err);
                     req.flash("error", "Something went wrong!");
                 } else {
-                    //check if the shown campground's user id is same as the logged in user's if
+                  
                     if(campfound.User.id.equals(req.user._id)) {
                         next();
                     } else {
@@ -63,5 +62,5 @@ let middlewareObj = {
 }
 
 
-//Export middleware
+
 module.exports = middlewareObj;
